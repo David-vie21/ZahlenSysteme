@@ -1,20 +1,21 @@
 /*
  * Dieses Programm wandelt Zahlen in verschiedene Systeme um (2-36) und kann damit rechnen!
    Die Methoden zur umwandlung wurden selber entwickelt und es wurden keine externen Librarys zur umwandlung verwendet.
-   Zum Potenzieren wurde eine Library verwendet => java.lang.Math
-   Das ganze dient dem Zweck der Übung.
+  
+   (Zum Potenzieren wurde eine Library verwendet => java.lang.Math) Ã„nderung=> wurde durch eine selbstgeschriebene ersetzt
+   Das ganze dient dem Zweck der Ãœbung.
    @David Ankenbrand   
 */
 
 package application;
 
-import java.lang.Math;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ZahlenSysteme_umwandler {
 
-	static List<Double> eD = new ArrayList<Double>(); // Zwischenspeicher für Nachkommastellen-zerlegung
+	static List<Double> eD = new ArrayList<Double>(); // Zwischenspeicher fÃ¼r Nachkommastellen-zerlegung
 	boolean isMinus = false;
 	static boolean deBug = true; // Sys.out.Println Schreiben oder nicht schreiben
 
@@ -56,7 +57,7 @@ public class ZahlenSysteme_umwandler {
 		// Minues Merken und erstmals rausnehmen
 		boolean e1m = false;
 		boolean e2m = false;
-		// minus erkennen, merken und löschen
+		// minus erkennen, merken und lÃ¶schen
 		if (isMinus(e1)) {
 			e1 = e1.replace("-", "");
 			e1m = true;
@@ -125,7 +126,7 @@ public class ZahlenSysteme_umwandler {
 
 		double zwischenS3;
 		double zwischenS4;
-		// prüfen ob komma vorhanden
+		// prÃ¼fen ob komma vorhanden
 		if (nachKomma1 == "") {
 			zwischenS3 = 0;
 		} else {
@@ -223,7 +224,7 @@ public class ZahlenSysteme_umwandler {
 		String ergebnisNachkomma = vonDecNachkomma(ergebnisNachkommaDouble, zA);
 
 		String ergebnisEnde = ergebisVorKomma + "," + ergebnisNachkomma;
-		// wenn ein minus dabei ist ==> wird ein minus wieder einfügen
+		// wenn ein minus dabei ist ==> wird ein minus wieder einfÃ¼gen
 		if (minusNachkomma) {
 			ergebnisEnde = "-" + ergebnisEnde;
 		}
@@ -235,14 +236,14 @@ public class ZahlenSysteme_umwandler {
 	}
 
 	public static String rechner2(String e1, int z1, String e2, int z2, int zA, String zeichen)
-			throws EigeneCheckedException { // in Laptop version übernehmen
+			throws EigeneCheckedException { // in Laptop version Ã¼bernehmen
 		// test lauf: rechner("A04bc",16,"11000",2,10);
 		sysOutP("Rechner: ");
 
 		// minus merk variblen
 		boolean e1m = false;
 		boolean e2m = false;
-		// minus erkennen, merken und löschen
+		// minus erkennen, merken und lÃ¶schen
 		if (isMinus(e1)) {
 			e1 = e1.replace("-", "");
 			e1m = true;
@@ -313,7 +314,7 @@ public class ZahlenSysteme_umwandler {
 	public String rechner(String e1, int z1, String e2, int z2, int zA, String zeichen) throws EigeneCheckedException { // in
 																														// Laptop
 																														// version
-																														// übernehmen
+																														// Ã¼bernehmen
 		// test lauf: rechner("A04bc",16,"11000",2,10);
 		sysOutP("Rechner: ");
 
@@ -434,7 +435,7 @@ public class ZahlenSysteme_umwandler {
 		String[] split2 = s_Split(eingabe);
 
 		for (int i = 0; i < split2.length; i++) {
-			switch (split2[i]) // Zahlen über 9 in Buchstaben umwandeln / unter 9 in List übergeben
+			switch (split2[i]) // Zahlen Ã¼ber 9 in Buchstaben umwandeln / unter 9 in List Ã¼bergeben
 			{
 			case "A":
 				split2[i] = "10";
@@ -561,7 +562,7 @@ public class ZahlenSysteme_umwandler {
 		// Plausi check
 		if (eingabe.length() > 8) // stackoverflow vermeiden
 		{
-			throw new EigeneCheckedException("Eingabe zu groß \n Stack Overflow Gefahr");
+			throw new EigeneCheckedException("Eingabe zu groÃŸ \n Stack Overflow Gefahr");
 		}
 		if (eingabe.isEmpty()) {
 			throw new EigeneCheckedException("Eigabe ist leer");
@@ -572,12 +573,12 @@ public class ZahlenSysteme_umwandler {
 			throw new EigeneCheckedException(
 					"Die angegebene Basis liegt nicht im Bereich zwischen 2-36 \n Falsche Basis");
 		}
-		// Eingabe prüfen
-		if (ak_zs <= 10) // prüfe ob Buchstaben gebraucht werden wenn nicht wird geblockt
+		// Eingabe prÃ¼fen
+		if (ak_zs <= 10) // prÃ¼fe ob Buchstaben gebraucht werden wenn nicht wird geblockt
 		{
 			sysOutP("Basis kleiner 11!");
 			sysOutP(eingabe);
-			if (isAlpha2(eingabe)) // überarbeiten!!!!!
+			if (isAlpha2(eingabe)) // Ã¼berarbeiten!!!!!
 			{
 				System.err.println("Die angegebene Basis liegt nicht im Bereich zwischen 11-36");
 				throw new EigeneCheckedException(
@@ -592,7 +593,7 @@ public class ZahlenSysteme_umwandler {
 				if (isAlpha2(cAufString)) {
 
 					eingabe.toUpperCase();
-					// Prüfen auf buchstaben mit charackter stadt swich case
+					// PrÃ¼fen auf buchstaben mit charackter stadt swich case
 					if (c < 'Z' - (25 - (ak_zs - 10)) && (c <= 'Z' && c >= 'A')) // welche Zahlen darf man verwenden
 					{
 						sysOutP("zwischen A-Z");
@@ -655,7 +656,7 @@ public class ZahlenSysteme_umwandler {
 			sysOutP("Die einzellen Teile: " + split[i]);
 
 		// Adition Einzellner Teile
-		int zwischenSpeicher = 0; // zwischenSpeicher für additon einzellner Stellen
+		int zwischenSpeicher = 0; // zwischenSpeicher fÃ¼r additon einzellner Stellen
 		int stringTOint; // Zerlegte Teile des String Arrays in einen Int speichern
 		int pM = 0; // potenz mutiplikator
 		int mult; // mulitiplikartor
@@ -680,7 +681,7 @@ public class ZahlenSysteme_umwandler {
 // Plausi check
 		if (eingabe.length() > 8) // stackoverflow vermeiden
 		{
-			throw new EigeneCheckedException("Eingabe zu groß");
+			throw new EigeneCheckedException("Eingabe zu groÃŸ");
 		}
 		if (eingabe.isEmpty()) {
 			throw new EigeneCheckedException("Eigabe ist leer");
@@ -691,12 +692,12 @@ public class ZahlenSysteme_umwandler {
 			throw new EigeneCheckedException(
 					"Falsche Basis \n Die angegebene Basis liegt nicht im Bereich zwischen 2-36");
 		}
-// Eingabe prüfen
-		if (ak_zs <= 10) // prüfe ob Buchstaben gebraucht werden wenn nicht wird geblockt
+// Eingabe prÃ¼fen
+		if (ak_zs <= 10) // prÃ¼fe ob Buchstaben gebraucht werden wenn nicht wird geblockt
 		{
 			sysOutP("Basis kleiner 11!");
 			sysOutP(eingabe);
-			if (isAlpha2(eingabe)) // überarbeiten!!!!!
+			if (isAlpha2(eingabe)) // Ã¼berarbeiten!!!!!
 			{
 				System.err.println("Die angegebene Basis liegt nicht im Bereich zwischen 11-36");
 				throw new EigeneCheckedException(
@@ -711,7 +712,7 @@ public class ZahlenSysteme_umwandler {
 				if (isAlpha2(cAufString)) {
 
 					eingabe.toUpperCase();
-// Prüfen auf buchstaben mit charackter stadt swich case
+// PrÃ¼fen auf buchstaben mit charackter stadt swich case
 					if (c < 'Z' - (25 - (ak_zs - 10)) && (c <= 'Z' && c >= 'A')) // welche Zahlen darf man verwenden
 					{
 						sysOutP("zwischen A-Z");
@@ -752,7 +753,7 @@ public class ZahlenSysteme_umwandler {
 		}
 
 // Adition Einzellner Teile
-		double zwischenSpeicher = 0; // zwischenSpeicher für additon einzellner Stellen
+		double zwischenSpeicher = 0; // zwischenSpeicher fÃ¼r additon einzellner Stellen
 		double stringToDouble; // Zerlegte Teile des String Arrays in einen Int speichern
 		double pM = -1; // potenz mutiplikator
 		double mult; // mulitiplikartor
@@ -776,22 +777,22 @@ public class ZahlenSysteme_umwandler {
 		// jedes andere
 		// System
 		// Plausi Check
-		if (zahlensytemAusgabe < 2 || zahlensytemAusgabe > 36) // Basis wird geprüft
+		if (zahlensytemAusgabe < 2 || zahlensytemAusgabe > 36) // Basis wird geprÃ¼ft
 		{
 			System.err.println("Die angegebene Basis liegt nicht im Bereich zwischen 2-36");
 			throw new EigeneCheckedException(
 					"Falsche Basis  \n Die angegebene Basis liegt nicht im Bereich zwischen 2-36");
 		}
 
-		if (eingabe < 0) // Eingabe wird geprüft
+		if (eingabe < 0) // Eingabe wird geprÃ¼ft
 		{
 			System.err.println("Die angegebene Zahl liegt nicht im positiven Bereich oder ");
 			throw new EigeneCheckedException(
 					"Falsche Eingabe \n  Die angegebene Zahl liegt nicht im positiven Bereich oder");
 		}
 		if (eingabe > Double.MAX_VALUE) {
-			System.err.println("Stack Overflow----Zahl zu groß");
-			throw new EigeneCheckedException("Falsche Eingabe \n Stack Overflow----Zahl zu groß");
+			System.err.println("Stack Overflow----Zahl zu groÃŸ");
+			throw new EigeneCheckedException("Falsche Eingabe \n Stack Overflow----Zahl zu groÃŸ");
 		}
 
 		// Plausi check ENDE
@@ -802,9 +803,9 @@ public class ZahlenSysteme_umwandler {
 		double e2;
 		e2 = eI;
 		int zEi;
-		int zsAusgabe = zahlensytemAusgabe; // Das gewünschte Zahlensystem bei er Ausgabe
+		int zsAusgabe = zahlensytemAusgabe; // Das gewÃ¼nschte Zahlensystem bei er Ausgabe
 		String ausgabeE = "";
-		// Zwischen Variblen für Divison
+		// Zwischen Variblen fÃ¼r Divison
 
 		ArrayList<String> e = new ArrayList<>();
 		// double ergebnisZ;
@@ -828,7 +829,7 @@ public class ZahlenSysteme_umwandler {
 
 			rest = e2 - zEi;
 
-			switch (zEi) // Zahlen über 9 in Buchstaben umwandeln / unter 9 in List übergeben
+			switch (zEi) // Zahlen Ã¼ber 9 in Buchstaben umwandeln / unter 9 in List Ã¼bergeben
 			{
 			case 10:
 				e.add(i, "A");
@@ -952,17 +953,17 @@ public class ZahlenSysteme_umwandler {
 
 		}
 
-		// Englültige zusammengestze Ausgabe
+		// EnglÃ¼ltige zusammengestze Ausgabe
 		// Zusammensetzen der Einzellen Werte
 		for (int i = 0; i < (e.size()); i++) {
 			ausgabeE = ausgabeE + e.get(i);
 			sysOutP("e.size: " + e.size() + " " + i + " Zwischgen Ausgabe:  NACkomma==> " + ausgabeE);
 		}
 		sysOutP(" \n  ");
-		sysOutP("Endglültige Ausgabe: NACkomma==>  " + ausgabeE);
+		sysOutP("EndglÃ¼ltige Ausgabe: NACkomma==>  " + ausgabeE);
 		sysOutP("return wert: " + ausgabeE);
 
-		// Ausgabe in Double zum rechnen WARSCHEINLICH UNÖTIG
+		// Ausgabe in Double zum rechnen WARSCHEINLICH UNÃ–TIG
 		double ergebnisTest = 0;
 		double pow = -1;
 		for (int i = 0; i < eD.size() - 1; i++) {
@@ -983,22 +984,22 @@ public class ZahlenSysteme_umwandler {
 																										// System
 
 // Plausi Check
-		if (ZahlensytemAusgabe < 2 || ZahlensytemAusgabe > 36) // Basis wird geprüft
+		if (ZahlensytemAusgabe < 2 || ZahlensytemAusgabe > 36) // Basis wird geprÃ¼ft
 		{
 			System.err.println("Die angegebene Basis liegt nicht im Bereich zwischen 2-36");
 			throw new EigeneCheckedException(
 					"Falsche Basis \n  Die angegebene Basis liegt nicht im Bereich zwischen 2-36");
 		}
 
-		if (eingabe < 0) // Eingabe wird geprüft
+		if (eingabe < 0) // Eingabe wird geprÃ¼ft
 		{
 			System.err.println("Die angegebene Zahl liegt nicht im positiven Bereich oder ");
 			throw new EigeneCheckedException(
 					"Falsche Eingabe \n Die angegebene Zahl liegt nicht im positiven Bereich oder");
 		}
 		if (eingabe > Integer.MAX_VALUE) {
-			System.err.println("Stack Overflow----Zahl zu groß");
-			throw new EigeneCheckedException("Falsche Eingabe \n Stack Overflow----Zahl zu groß");
+			System.err.println("Stack Overflow----Zahl zu groÃŸ");
+			throw new EigeneCheckedException("Falsche Eingabe \n Stack Overflow----Zahl zu groÃŸ");
 		}
 
 // Plausi check ENDE
@@ -1006,9 +1007,9 @@ public class ZahlenSysteme_umwandler {
 		sysOutP("");
 		sysOutP("Von Decimal Umwandel");
 		int eI = eingabe; // eingabe int INT / return wert der funkton aufDec
-		int zsAusgabe = ZahlensytemAusgabe; // Das gewünschte Zahlensystem bei er Ausgabe
+		int zsAusgabe = ZahlensytemAusgabe; // Das gewÃ¼nschte Zahlensystem bei er Ausgabe
 
-// Zwischen Variblen für Divison
+// Zwischen Variblen fÃ¼r Divison
 		ArrayList<String> e = new ArrayList<>();
 		// int ergebnisZ;
 		int rest;
@@ -1019,7 +1020,7 @@ public class ZahlenSysteme_umwandler {
 			rest = eI % zsAusgabe;
 			eI = eI / zsAusgabe;
 
-			switch (rest) // Zahlen über 9 in Buchstaben umwandeln / unter 9 in List übergeben
+			switch (rest) // Zahlen Ã¼ber 9 in Buchstaben umwandeln / unter 9 in List Ã¼bergeben
 			{
 			case 10:
 				e.add(i, "A");
@@ -1142,19 +1143,19 @@ public class ZahlenSysteme_umwandler {
 			sysOutP("ArrayList: " + e.get(i));
 		}
 
-		String ausgabeE = "";// Englültige zusammengestze Ausgabe
+		String ausgabeE = "";// EnglÃ¼ltige zusammengestze Ausgabe
 // Zusammensetzen der Einzellen Werte
 		for (int i = (e.size() - 1); i >= 0; i--) {
 			ausgabeE = ausgabeE + e.get(i);
 			sysOutP("Zwischgen Ausgabe: " + ausgabeE);
 		}
 		sysOutP(" \n \n ");
-		sysOutP("Endglültige Ausgabe: " + ausgabeE);
+		sysOutP("EndglÃ¼ltige Ausgabe: " + ausgabeE);
 		sysOutP("return wert: " + ausgabeE);
 		return ausgabeE;
 	}
 
-	public static boolean isAlpha2(String text) throws EigeneCheckedException {// überarbeiet von Java-Forum
+	public static boolean isAlpha2(String text) throws EigeneCheckedException {// Ã¼berarbeiet von Java-Forum
 		boolean is = false;
 		for (char c : text.toCharArray()) {
 
@@ -1167,7 +1168,7 @@ public class ZahlenSysteme_umwandler {
 			if (c >= 'A' && c <= 'Z') {
 				is = true;
 			}
-			if (c > 'z' && c <= 'ÿ') {
+			if (c > 'z' && c <= 'Ã¿') {
 				throw new EigeneCheckedException(c + "Ist ein Falscher Buchstabe");
 			}
 
@@ -1193,7 +1194,7 @@ public class ZahlenSysteme_umwandler {
 		return is;
 	}
 
-	public static boolean isMinus(String s) // Prüft auf minus
+	public static boolean isMinus(String s) // PrÃ¼ft auf minus
 	{
 		for (char c : s.toCharArray()) {
 			if (c == '-') {
