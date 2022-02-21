@@ -38,7 +38,6 @@ public class Main extends Application {
 			sampleController.setMain(this);
 			
 			Scene scene = new Scene(pane);
-			scene.getStylesheets().add("application.css");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
